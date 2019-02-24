@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Displacement Map</title>
+</head>
+<body>
+
+    <canvas id="canvas" width="500" height="600"></canvas>
+    <script>
+        "use strict";
+        window.addEventListener("DOMContentLoaded", init);
+
+        let canvas;
+        let ctx;
+        let image;
+        let w = 500;
+        let h = 600;
+        let imageData;
+
+        function init(){
+            canvas= document.querySelector("#canvas");
+            ctx = canvas.getContext('2d');
+            image = new Image();
+            image.src="cat.jpg"
+            image.onload = function(){
+                ctx.drawImage(image, 0, 0, w, h); 
+                imageData = ctx.getImageData(0,0, w, h); 
+                console.log(imageData)
+                     
+            };
+
+            canvas.addEventListener("mousemove", mouseMoved);
+        };
+
+        let mouseOverCanvasX;
+        let mouseOverCanvasY;
+
+        function mouseMoved(event){
+            ctx.clearRect(0,0,w,h);
+            ctx.putImageData(imageData, 0, 0);
+            
+            mouseOverCanvasX = event.offsetX;
+            mouseOverCanvasY = event.offsetY;
+            console.log(mouseOverCanvasX);
+            console.log(mouseOverCanvasY);
+            ctx.strokeRect(mouseOverCanvasX - 7.5, mouseOverCanvasY -5, 15, 10);
+            
+            
+            
+            
+        }
+
+        
+
+      
+;    
+    </script>
+</body>
+</html>
