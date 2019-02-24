@@ -50,8 +50,8 @@
             //console.log(mouseOverCanvasY);
             ctx.strokeRect(mouseOverCanvasX - 7.5, mouseOverCanvasY -5, 15, 10);
 
-            mouseXratio = ((mouseOverCanvasX - w) / w);
-            mouseYratio = ((mouseOverCanvasY - h) / h);
+            mouseXratio = ( mouseOverCanvasX / w * 2 ) - 1;
+            mouseYratio = ( mouseOverCanvasY / h * 2 ) - 1;
 
             console.log(mouseXratio)
             console.log(mouseYratio)
