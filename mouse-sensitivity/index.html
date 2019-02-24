@@ -46,17 +46,17 @@
             
             mouseOverCanvasX = event.offsetX;
             mouseOverCanvasY = event.offsetY;
-            console.log(mouseOverCanvasX);
-            console.log(mouseOverCanvasY);
+            //console.log(mouseOverCanvasX);
+            //console.log(mouseOverCanvasY);
             ctx.strokeRect(mouseOverCanvasX - 7.5, mouseOverCanvasY -5, 15, 10);
 
-            mouseXratio
-            
-            
-            
-            
-        }
+            mouseXratio = ((mouseOverCanvasX - w) / w);
+            mouseYratio = ((mouseOverCanvasY - h) / h);
 
+            console.log(mouseXratio)
+            console.log(mouseYratio)
+        }
+        const MAX_MOVEMENT = 20;
         
 
       
