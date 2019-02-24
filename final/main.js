@@ -35,7 +35,7 @@ function init() {
     imgMap.onload = () => {
         mapCtx.drawImage(imgMap, 0, 0)
         // get the data of map image
-        imgMapData = getImgData(mapCtx);
+        imgMapData = mapCtx.getImageData(0, 0, canvas.width, canvas.height);
     };
 
     resultCanvas.addEventListener("mousemove", mouseMoved);
@@ -44,9 +44,6 @@ function init() {
     imgMap.src = "map.jpg";
 }
 
-function getImgData(elem) {
-    return elem.getImageData(0, 0, canvas.width, canvas.height);
-}
 
 function drawCopiedData() {
     console.log(resultData)
